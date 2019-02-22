@@ -1,0 +1,16 @@
+<h3>  Name: <%= @trip.name %> </h3>
+<p>Start of the trip: <%= @trip.start_date %> </p>
+<p>End of the trip: <%= @trip.end_date %> </p>
+
+<% unless @trip.trails.empty? %>
+<ul class="trails">
+  <% @trip.trails.each do |trail| %>
+  <li>Name: <%= trail.name %> </li>
+  <li>Address: <%= trail.address %> </li>
+  <li>Length: <%= trail.length %> </li>
+  <% end %>
+</ul>
+<p>Total hiking distance: <%= @trip.total_hiking_distance %> miles</p>
+<p>Average distance of its trails: <%= @trip.average_miles.to_f.round(2)%> miles</p>
+<p>Longest Trail on Trip: <%= @trip.longest_trail.name %> </p>
+<% end %>
